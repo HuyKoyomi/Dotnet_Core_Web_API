@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- 
+      Nullable: Kích hoạt tính năng nullable reference types (kiểu tham chiếu có thể rỗng)
+      ImplicitUsings: Tự động thêm các using phổ biến trong mỗi tệp mã của bạn mà không cần khai báo thủ
+    công.
+InvariantGlobalization: 
+  + Xác định cách xử lý globalization (toàn cầu hóa) trong dự án
+  + Khi false, ứng dụng sẽ sử dụng các quy tắc ngôn ngữ và văn hóa của hệ điều hành, hỗ trợ định dạng
+    ngày tháng, số, chuỗi... dựa trên văn hóa địa phương (các thiết lập ngôn ngữ của hệ thống).
+  +  Khi true, ứng dụng sẽ bỏ qua các thiết lập văn hóa và sử dụng các quy tắc globalization chuẩn của
+    .NET
+   -->
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="MySql.Data" Version="9.0.0" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>
