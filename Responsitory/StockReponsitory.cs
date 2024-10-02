@@ -14,11 +14,9 @@ namespace api.Responsitory
     {
         private readonly ApplicationDBContext _context; // đối tượng của DbContext, cung cấp kết nối và truy cập vào cơ sở dữ liệu.
 
-
         public StockReponsitory(ApplicationDBContext context)
         {
             _context = context;
-
         }
 
         public Task<List<Stock>> GetAllAsync()
@@ -38,7 +36,7 @@ namespace api.Responsitory
             return stockModel;
         }
 
-        public async Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockModel)
+        public async Task<Stock?> UpdateAsync(int id, Stock stockModel)
         {
             var existingStock = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
             if (existingStock == null)

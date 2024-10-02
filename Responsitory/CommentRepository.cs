@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using api.Data;
 using api.Interfaces;
 using api.Models;
+using Dotnet_Core_Web_API.Dtos.Comment;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Responsitory
@@ -33,6 +34,22 @@ namespace api.Responsitory
             await _context.Comments.AddAsync(commentModel);
             await _context.SaveChangesAsync();
             return commentModel;
+        }
+
+        public async Task<Comment?> UpdateAsync(int id, Comment commentModel)
+        {
+            var existingComment = await _context.Comments.FindAsync(id);
+            if (existingComment == null)
+            {
+                return null;
+            }
+
+            existingComment.Title = commentModel.Title;
+            existingComment.Content = commentModel.Content;
+
+            await _context.SaveChangesAsync();
+
+            return existingComment;
         }
     }
 }
