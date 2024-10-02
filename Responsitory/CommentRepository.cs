@@ -27,5 +27,12 @@ namespace api.Responsitory
         {
             return await _context.Comments.FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        public async Task<Comment> CreateAsync(Comment commentModel)
+        {
+            await _context.Comments.AddAsync(commentModel);
+            await _context.SaveChangesAsync();
+            return commentModel;
+        }
     }
 }
