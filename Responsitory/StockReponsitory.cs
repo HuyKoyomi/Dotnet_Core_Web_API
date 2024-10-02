@@ -6,6 +6,7 @@ using api.Data;
 using api.Dtos.Stock;
 using api.Interfaces;
 using api.Models;
+using Dotnet_Core_Web_API.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Responsitory
@@ -19,9 +20,20 @@ namespace api.Responsitory
             _context = context;
         }
 
-        public Task<List<Stock>> GetAllAsync()
+        public async Task<List<Stock>> GetAllAsync(QueryObject query)
         {
-            return _context.Stocks.Include(c => c.Comments).ToListAsync();
+            // return _context.Stocks.Include(c => c.Comments).ToListAsync();
+            var stocks = _context.Stocks.Include(c => c.Comments).AsQueryable();
+            if (!string.IsNullOrWhiteSpace(query.Companyname))
+            {
+                stocks = stocks.Where(s => s.CompanyName.Contains(query.Companyname));
+            }
+            if (!string.IsNullOrWhiteSpace(query.Symbol))
+            {
+                stocks = stocks.Where(s => s.Symbol.Contains(query.Symbol));
+            }
+            return await stocks.ToListAsync();
+
         }
 
         public async Task<Stock?> GetByIdAsync(int id)

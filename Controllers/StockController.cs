@@ -6,6 +6,7 @@ using api.Data;
 using api.Dtos.Stock;
 using api.Interfaces;
 using api.Mappers;
+using Dotnet_Core_Web_API.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,14 +24,13 @@ namespace api.Controllers
         }
 
         [HttpGet] // một attribute trong ASP.NET Core => phương thức GetAll() sẽ phản hồi với các yêu cầu HTTP GET
-
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
             if(!ModelState.IsValid){
                 return BadRequest(ModelState);
             }
             // IActionResult là kiểu trả về các loại phản hồi như Ok(), NotFound(), BadRequest()
-            var stocks = await _stockRepo.GetAllAsync();
+            var stocks = await _stockRepo.GetAllAsync(query);
             var stockDto = stocks.Select(s => s.ToStockDto()); // chuyển sang DTO
             return Ok(stockDto);
         }
