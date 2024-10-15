@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Dotnet_Core_Web_API.Models;
 
 namespace api.Models
 {
@@ -26,5 +27,7 @@ namespace api.Models
         public long MarketCap { get; set; }
 
         public List<Comment> Comments { get; set; } = new List<Comment>(); // quan hệ một - nhiều với một khóa ngoại trong bảng Comment trỏ đến bảng Stock. 1 Stock có thể chứa nhiều Comment
+
+        public List<Porfolio> Porfolios { get; set; } = new List<Porfolio>();
     }
 }

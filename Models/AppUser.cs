@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Dotnet_Core_Web_API.Models
 {
-    public class AppUser: IdentityUser
+    public class AppUser : IdentityUser
     {
-        
+        public List<Porfolio> Porfolios { get; set; } = new List<Porfolio>();
     }
 }
