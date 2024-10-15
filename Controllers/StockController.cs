@@ -7,6 +7,7 @@ using api.Dtos.Stock;
 using api.Interfaces;
 using api.Mappers;
 using Dotnet_Core_Web_API.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,9 +25,11 @@ namespace api.Controllers
         }
 
         [HttpGet] // một attribute trong ASP.NET Core => phương thức GetAll() sẽ phản hồi với các yêu cầu HTTP GET
+        [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             // IActionResult là kiểu trả về các loại phản hồi như Ok(), NotFound(), BadRequest()
@@ -38,7 +41,8 @@ namespace api.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             var stock = await _stockRepo.GetByIdAsync(id);
@@ -53,7 +57,8 @@ namespace api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateStockRequestDto stockDto)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             // [FromBody]: Attribute này cho biết dữ liệu sẽ được ánh xạ từ nội dung body của yêu cầu HTTP
@@ -66,7 +71,8 @@ namespace api.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             var stockModel = await _stockRepo.UpdateAsync(id, updateDto.ToStockFromUpdateDto());
@@ -81,7 +87,8 @@ namespace api.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             var stockModel = await _stockRepo.DeleteAsync(id);
