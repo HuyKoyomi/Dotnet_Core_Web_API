@@ -2,6 +2,7 @@ using api.Data;
 using api.Interfaces;
 using api.Responsitory;
 using Dotnet_Core_Web_API.Models;
+using Dotnet_Core_Web_API.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers(); // đăng ký dịch vụ cho controllers trong ứng dụng
+builder.Services.AddScoped<ITokenService, TokenService>(); // thêm dịch vụ TokenService vào container
+
 
 // cấu hình Entity Framework Core => thiết lập kết nối cơ sở dữ liệu SQL Server
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
