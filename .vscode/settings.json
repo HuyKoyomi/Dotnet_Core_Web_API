@@ -1,1 +1,5 @@
-{}
+{
+    "vscode-pets.throwBallWithMouse": true,
+    "vscode-pets.theme": "beach",
+    "vscode-pets.petSize": "small"
+}
