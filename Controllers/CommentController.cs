@@ -17,7 +17,6 @@ namespace api.Controllers
         private readonly ICommentReponsitory _commentRepo;
         private readonly IStockReponsitory _stockRepo;
 
-
         public CommentController(ICommentReponsitory commentRepo, IStockReponsitory stockRepo)
         {
             _commentRepo = commentRepo;

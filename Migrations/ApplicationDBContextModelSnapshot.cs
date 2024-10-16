@@ -86,7 +86,7 @@ namespace api.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Dotnet_Core_Web_API.Models.Porfolio", b =>
+            modelBuilder.Entity("Dotnet_Core_Web_API.Models.Portfolio", b =>
                 {
                     b.Property<string>("AppUserId")
                         .HasColumnType("varchar(255)");
@@ -98,7 +98,7 @@ namespace api.Migrations
 
                     b.HasIndex("StockId");
 
-                    b.ToTable("Porfolios");
+                    b.ToTable("Portfolios");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -129,13 +129,13 @@ namespace api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "82f7b119-e39e-4ae4-bd15-6cc16f08ec8b",
+                            Id = "b32a59b4-ed9f-48b0-b578-c02859ce0324",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7c47054d-7872-4712-80c1-6d2fd6a25091",
+                            Id = "629a2ece-866f-4ea9-bb30-3b87f112cb31",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -310,7 +310,7 @@ namespace api.Migrations
                     b.ToTable("Stocks");
                 });
 
-            modelBuilder.Entity("Dotnet_Core_Web_API.Models.Porfolio", b =>
+            modelBuilder.Entity("Dotnet_Core_Web_API.Models.Portfolio", b =>
                 {
                     b.HasOne("Dotnet_Core_Web_API.Models.AppUser", "AppUser")
                         .WithMany("Porfolios")

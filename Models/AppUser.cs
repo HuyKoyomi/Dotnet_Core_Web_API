@@ -8,6 +8,6 @@ namespace Dotnet_Core_Web_API.Models
 {
     public class AppUser : IdentityUser
     {
-        public List<Porfolio> Porfolios { get; set; } = new List<Porfolio>();
+        public List<Portfolio> Porfolios { get; set; } = new List<Portfolio>();
     }
 }

@@ -1,7 +1,9 @@
 using api.Data;
 using api.Interfaces;
 using api.Responsitory;
+using Dotnet_Core_Web_API.Interfaces;
 using Dotnet_Core_Web_API.Models;
+using Dotnet_Core_Web_API.Responsitory;
 using Dotnet_Core_Web_API.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -86,6 +88,7 @@ builder.Services.AddAuthentication(options =>
 });
 builder.Services.AddScoped<IStockReponsitory, StockReponsitory>(); // cấu hình Reponsitory
 builder.Services.AddScoped<ICommentReponsitory, CommentRepository>(); // cấu hình Reponsitory
+builder.Services.AddScoped<IPortfolioReponsitory, PortfolioRepository>(); // cấu hình Reponsitory
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;

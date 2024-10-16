@@ -7,8 +7,8 @@ using api.Models;
 
 namespace Dotnet_Core_Web_API.Models
 {
-    [Table("Porfolios")]
-    public class Porfolio
+    [Table("Portfolios")]
+    public class Portfolio
     {
         public string AppUserId { get; set; }
         public int StockId { get; set; }

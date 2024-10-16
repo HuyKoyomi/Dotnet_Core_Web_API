@@ -20,7 +20,7 @@ namespace api.Data
 
     public DbSet<Stock> Stocks { get; set; }
     public DbSet<Comment> Comments { get; set; }
-    public DbSet<Porfolio> Porfolios { get; set; }
+    public DbSet<Portfolio> Porfolios { get; set; }
 
 
     // Phương thức này gọi OnModelCreating của lớp cha để thực hiện các cấu hình mặc định trước khi thêm các cấu hình tùy chỉnh.
@@ -28,11 +28,11 @@ namespace api.Data
     {
       base.OnModelCreating(builder);
 
-      builder.Entity<Porfolio>(x => x.HasKey(p => new { p.AppUserId, p.StockId })); // Thiết lập khóa chính (primary key) cho thực thể Portfolio bao gồm hai trường: AppUserId và StockId.
+      builder.Entity<Portfolio>(x => x.HasKey(p => new { p.AppUserId, p.StockId })); // Thiết lập khóa chính (primary key) cho thực thể Portfolio bao gồm hai trường: AppUserId và StockId.
 
-      builder.Entity<Porfolio>().HasOne(u => u.AppUser).WithMany(u => u.Porfolios).HasForeignKey(p => p.AppUserId); // Thiết lập một mối quan hệ "một-nhiều" giữa thực thể AppUser và Portfolio
+      builder.Entity<Portfolio>().HasOne(u => u.AppUser).WithMany(u => u.Porfolios).HasForeignKey(p => p.AppUserId); // Thiết lập một mối quan hệ "một-nhiều" giữa thực thể AppUser và Portfolio
 
-      builder.Entity<Porfolio>().HasOne(u => u.Stock).WithMany(u => u.Porfolios).HasForeignKey(p => p.StockId);
+      builder.Entity<Portfolio>().HasOne(u => u.Stock).WithMany(u => u.Porfolios).HasForeignKey(p => p.StockId);
       // => một người dùng (AppUser) sở hữu nhiều danh mục đầu tư (Portfolio), và một cổ phiếu (Stock) có thể thuộc về nhiều danh mục đầu tư (Portfolio).
 
       List<IdentityRole> roles = new List<IdentityRole>{

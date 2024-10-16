@@ -28,6 +28,6 @@ namespace api.Models
 
         public List<Comment> Comments { get; set; } = new List<Comment>(); // quan hệ một - nhiều với một khóa ngoại trong bảng Comment trỏ đến bảng Stock. 1 Stock có thể chứa nhiều Comment
 
-        public List<Porfolio> Porfolios { get; set; } = new List<Porfolio>();
+        public List<Portfolio> Porfolios { get; set; } = new List<Portfolio>();
     }
 }
