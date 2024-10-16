@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Models
+namespace Dotnet_Core_Web_API.Models
 {
     [Table("Comments")]
     public class Comment

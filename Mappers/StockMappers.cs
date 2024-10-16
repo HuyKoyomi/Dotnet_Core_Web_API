@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Dtos.Stock;
-using api.Models;
+using Dotnet_Core_Web_API.Dtos.Stock;
+using Dotnet_Core_Web_API.Models;
 
-namespace api.Mappers
+namespace Dotnet_Core_Web_API.Mappers
 {
     public static class StockMappers
     {

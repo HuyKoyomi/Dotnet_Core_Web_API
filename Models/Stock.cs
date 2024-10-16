@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using Dotnet_Core_Web_API.Models;
 
-namespace api.Models
+namespace Dotnet_Core_Web_API.Models
 {
      [Table("Stocks")]
     public class Stock

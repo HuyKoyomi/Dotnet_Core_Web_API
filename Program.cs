@@ -1,10 +1,9 @@
-using api.Data;
-using api.Interfaces;
-using api.Responsitory;
+using Dotnet_Core_Web_API.Data;
 using Dotnet_Core_Web_API.Interfaces;
 using Dotnet_Core_Web_API.Models;
 using Dotnet_Core_Web_API.Responsitory;
 using Dotnet_Core_Web_API.Service;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

@@ -2,14 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Data;
-using api.Dtos.Stock;
-using api.Interfaces;
-using api.Models;
+using Dotnet_Core_Web_API.Data;
+using Dotnet_Core_Web_API.Interfaces;
+using Dotnet_Core_Web_API.Models;
 using Dotnet_Core_Web_API.Helpers;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Responsitory
+namespace Dotnet_Core_Web_API.Responsitory
 {
     public class StockReponsitory : IStockReponsitory
     {

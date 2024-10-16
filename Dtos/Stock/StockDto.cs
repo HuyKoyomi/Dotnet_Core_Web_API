@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Dtos.Comment;
+using Dotnet_Core_Web_API.Dtos.Comment;
 
-namespace api.Dtos.Stock
+namespace Dotnet_Core_Web_API.Dtos.Stock
 {
     public class StockDto
     {

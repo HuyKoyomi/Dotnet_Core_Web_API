@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Interfaces;
-using api.Mappers;
+using Dotnet_Core_Web_API.Interfaces;
+using Dotnet_Core_Web_API.Mappers;
 using Dotnet_Core_Web_API.Dtos.Comment;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
-namespace api.Controllers
+namespace Dotnet_Core_Web_API.Controllers
 {
     [Route("api/comment")]
     [ApiController]
@@ -26,7 +26,8 @@ namespace api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             // IActionResult là kiểu trả về các loại phản hồi như Ok(), NotFound(), BadRequest()
@@ -38,7 +39,8 @@ namespace api.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             var comment = await _commentRepo.GetByIdAsync(id);
@@ -52,7 +54,8 @@ namespace api.Controllers
         [HttpPost("{stockId:int}")]
         public async Task<IActionResult> Create([FromRoute] int stockId, CreateCommentRequestDto commentDto)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             if (!await _stockRepo.StockExists(stockId))
@@ -67,7 +70,8 @@ namespace api.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, UpdateCommentRequestDto updateDto)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             var commentModel = await _commentRepo.UpdateAsync(id, updateDto.ToCommentFromUpdateDto());
@@ -82,7 +86,8 @@ namespace api.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             var commentModel = await _commentRepo.DeleteAsync(id);

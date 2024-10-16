@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dotnet_Core_Web_API.Models;
 
-namespace api.Interfaces
+namespace Dotnet_Core_Web_API.Interfaces
 {
     public interface ITokenService
     {

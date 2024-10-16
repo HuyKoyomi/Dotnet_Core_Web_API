@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace api.Dtos.Stock
+namespace Dotnet_Core_Web_API.Dtos.Stock
 {
     public class CreateStockRequestDto
     {

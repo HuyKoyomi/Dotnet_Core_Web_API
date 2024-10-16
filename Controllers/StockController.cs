@@ -2,16 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Data;
-using api.Dtos.Stock;
-using api.Interfaces;
-using api.Mappers;
+using Dotnet_Core_Web_API.Data;
+using Dotnet_Core_Web_API.Dtos.Stock;
+using Dotnet_Core_Web_API.Interfaces;
+using Dotnet_Core_Web_API.Mappers;
 using Dotnet_Core_Web_API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
-namespace api.Controllers
+namespace Dotnet_Core_Web_API.Controllers
 {
     [Route("api/stock")] // Định nghĩa route - URL trong Controller này bắt đầu với ("api/stock")
     [ApiController] // Gắn nhãn controller này như một API controller, kích hoạt chức năng tự động như "validate đầu vào", "Binding dữ liệu", "(Bad Request) cho dữ liệu không hợp lệ"

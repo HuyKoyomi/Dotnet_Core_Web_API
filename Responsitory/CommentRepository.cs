@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api.Data;
-using api.Interfaces;
-using api.Models;
-using Dotnet_Core_Web_API.Dtos.Comment;
+using Dotnet_Core_Web_API.Interfaces;
+using Dotnet_Core_Web_API.Models;
 using Microsoft.EntityFrameworkCore;
+using Dotnet_Core_Web_API.Data;
 
-namespace api.Responsitory
+namespace Dotnet_Core_Web_API.Responsitory
 {
     public class CommentRepository : ICommentReponsitory
     {
