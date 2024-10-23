@@ -8,6 +8,7 @@ namespace Dotnet_Core_Web_API.Interfaces
 {
     public interface IPortfolioReponsitory
     {
-       Task<List<Stock>> GetUserPortfolio(AppUser appUser);
+        Task<List<Stock>> GetUserPortfolio(AppUser appUser);
+        Task<Portfolio> CreateAsync(Portfolio portfolio);
     }
 }

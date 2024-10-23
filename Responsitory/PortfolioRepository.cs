@@ -32,5 +32,12 @@ namespace Dotnet_Core_Web_API.Responsitory
                 MarketCap = stock.Stock.MarketCap
             }).ToListAsync();
         }
+
+        public async Task<Portfolio> CreateAsync(Portfolio portfolio)
+        {
+            await _context.Porfolios.AddAsync(portfolio);
+            await _context.SaveChangesAsync();
+            return portfolio;
+        }
     }
 }
